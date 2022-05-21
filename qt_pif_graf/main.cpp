@@ -1,11 +1,12 @@
 #include "mainwindow.h"
+#include "main.h"
 
-#include <QApplication>
-#include <QLabel>
-#include <QBoxLayout>
-#include <QLineEdit>
-#include <QValidator>
-#include <QPushButton>
+/*
+void Test_QObj::set_fixed_val(QLineEdit& line_to_set)
+{
+    line_to_set.setText((const QString) "42");
+}
+*/
 
 int main(int argc, char *argv[])
 {
@@ -13,15 +14,24 @@ int main(int argc, char *argv[])
     //QMainWindow w;
     QWidget w;
 
-    QVector<QWidget*> vect_0_label;
-    QVector<QLineEdit*> vect_1_line_edit;
+    //QVector<QWidget*> vect_0_label;
+    //QVector<QLineEdit*> vect_1_line_edit;
 
-    QBoxLayout column_0(QBoxLayout::TopToBottom);
-    QIntValidator validator_0_dates;
+    //QBoxLayout column_0(QBoxLayout::TopToBottom);
+    QIntValidator validator_0_dates (0, 100, NULL);
 
     QLabel label_0_month_payment;//("Hello world");
     label_0_month_payment.setText("Сумма ежемесячного взноса: ");
 
+    QLineEdit test_line_0;
+    test_line_0.setText("test text 0");
+
+    QFormLayout form_layout_0;
+    form_layout_0.addRow("monthly installment", &test_line_0);
+
+    w.setLayout(&form_layout_0);
+
+    /*
     QLabel label_1_number_of_month;
     label_1_number_of_month.setText("Количество месяцев: ");
 
@@ -46,7 +56,6 @@ int main(int argc, char *argv[])
     QLabel label_5_1_value;
     label_5_1_value.setText("0");
 
-
     vect_0_label.push_back(&label_0_month_payment);
     vect_0_label.push_back(&label_1_number_of_month);
     vect_0_label.push_back(&label_2_year_percent);
@@ -62,7 +71,12 @@ int main(int argc, char *argv[])
         vect_0_label[i]->adjustSize();
     }
 
+    //Test_QObj tmp_obj_0;
+
     QLineEdit line_0_month_payment;
+
+    //QObject::connect(&line_0_month_payment, SIGNAL(QEvent::FocusOut), &line_0_month_payment, SLOT(setText(( QString) "42")));
+
     QLineEdit line_1_number_of_month;
     QLineEdit line_2_year_percent;
     vect_1_line_edit.push_back(&line_0_month_payment);
@@ -88,6 +102,7 @@ int main(int argc, char *argv[])
 
     for (int i = 0; i < vect_2_all_layout_0.size(); ++i)
     {
+       //QObject::connect(vect_2_all_layout_0[i], SIGNAL(QEvent::FocusOut), vect_2_all_layout_0[i], SLOT(setNum(42)));
        column_0.addWidget(vect_2_all_layout_0[i]);
     }
 
@@ -114,6 +129,7 @@ int main(int argc, char *argv[])
     string_0_main.addLayout(&column_1);
 
     w.setLayout(&string_0_main);
+    */
     w.show();
 
     return a.exec();
