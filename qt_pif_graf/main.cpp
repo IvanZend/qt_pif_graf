@@ -12,13 +12,13 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     //QMainWindow w;
-    QWidget w;
+    //QWidget w;
 
     //QVector<QWidget*> vect_0_label;
     //QVector<QLineEdit*> vect_1_line_edit;
 
     //QBoxLayout column_0(QBoxLayout::TopToBottom);
-    QIntValidator validator_0_dates (0, 100, NULL);
+    //QIntValidator validator_0_dates (0, 100, NULL);
 
     QLabel label_0_month_payment;//("Hello world");
     label_0_month_payment.setText("Сумма ежемесячного взноса: ");
@@ -26,10 +26,21 @@ int main(int argc, char *argv[])
     QLineEdit test_line_0;
     test_line_0.setText("test text 0");
 
-    QFormLayout form_layout_0;
-    form_layout_0.addRow("monthly installment", &test_line_0);
+    QPushButton btn_0_calculate("calculate profit");
 
-    w.setLayout(&form_layout_0);
+    QObject::connect(&btn_0_calculate, SIGNAL(clicked()), &test_line_0, SLOT(setText("42")));
+
+    label_0_month_payment.show();
+    test_line_0.show();
+    btn_0_calculate.show();
+
+    //QFormLayout form_layout_0;
+    //form_layout_0.addRow("monthly installment", &test_line_0);
+    //form_layout_0.addRow(&btn_0_calculate);
+
+
+
+    //w.setLayout(&form_layout_0);
 
     /*
     QLabel label_1_number_of_month;
@@ -130,7 +141,7 @@ int main(int argc, char *argv[])
 
     w.setLayout(&string_0_main);
     */
-    w.show();
+    //w.show();
 
     return a.exec();
 }
